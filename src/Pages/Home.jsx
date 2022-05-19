@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import Header from "../Components/Header";
 import Horoscope from "../Components/Horoscope";
-import Sign from "../Components/Horoscope";
+import Sign from "../Components/Sign";
 import Tarot from "../Components/Tarot";
 import searchSign from "../Utils/searchSign";
 
@@ -11,10 +11,22 @@ import Form from "react-bootstrap/Form";
 
 
 function Home() {
+
   const [sign, setSign] = useState([]);
   const [showSign, setShowSign] = useState(false);
   const [showTarot, setShowTarot] = useState(false);
+  const [validated, setValidated] = useState(false);
 
+  const handleSubmit = (e) => {
+    const form = e.currentTarget;
+    if (form.checkValidity() === false) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+
+    setValidated(true);
+
+  };
   const getBirthday = (e) => {
     let month = parseInt(e.target.value.split("-")[1]);
     let day = parseInt(e.target.value.split("-")[2]);
@@ -22,8 +34,10 @@ function Home() {
   };
  
   const checkHoroscope = (e) => {
-    e.preventDefault();
-    setShowSign(true);
+   if(setValidated()===true){
+
+   }
+   setShowSign(true);
   };
 
   const cardsTarot = (e) => {
@@ -35,16 +49,22 @@ function Home() {
 
   return (
     <>
-      <Header/>
+      <h1 className="text-center mt-3">MAGIC MOON</h1>
+      <h3 className="text-center mt-3">Read horoscope today, tomorrow and weekly news. Get astrological predictions related to your zodiac signs</h3>
       <Container>
-      <Container className="p-5 mb-4 rounded-3 col-4">
-        <Form>
+    
+      <Container className="p-5 mb-4 rounded-3 col-md-4">
+        <Form noValidate validated={validated} onSubmit={handleSubmit}>
           <Form.Group className="mb-3" controlId="formBasicName">
             <Form.Label>Name</Form.Label>
             <Form.Control
               type="text"
               placeholder="Enter your name"
+              required
             />
+            <Form.Control.Feedback type="invalid">
+            Name is required
+          </Form.Control.Feedback>
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -52,28 +72,36 @@ function Home() {
             <Form.Control
               type="email"
               placeholder="Enter email"
+              required
             />
+            <Form.Control.Feedback type="invalid">
+            Email is required
+          </Form.Control.Feedback>
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicGenero">
             <Form.Label>Gender</Form.Label>
-            <Form.Control as="select" > 
+            <Form.Control required as="select" > 
               <option value="">Select your gender</option>
               <option value="M">Male</option>
               <option value="F">Female</option>
               <option value="M">Non binary</option>
             </Form.Control>
+            <Form.Control.Feedback type="invalid">
+            Gender is required
+          </Form.Control.Feedback>
           </Form.Group>
 
           <Form.Group controlId="formBasicFechaNacimiento">
             <Form.Label>Birthday</Form.Label>
-            <Form.Control type="date" onChange={getBirthday} />
+            <Form.Control required type="date" onChange={getBirthday}/>
           </Form.Group>
+
         </Form>
 
         <div className="text-center mt-3">
           <h2>Check your horoscope!!</h2>
-          <img src="./assets/img/bola.jpg" width="100" onClick={checkHoroscope} />
+          <button  onClick={checkHoroscope}><img src="./assets/img/bola.jpg" width="100" /></button>
         </div>
       </Container>
 
@@ -82,7 +110,7 @@ function Home() {
         <Horoscope sign={sign} />
       </>    
       )}
-      <Container className="text-center">
+      <Container className="text-center mt-4 mb-4">
         <h3>Tarot reading</h3>
         <img src="./assets/img/bola.jpg" width="100" onClick={cardsTarot} className="img-fluid" />
         </Container>

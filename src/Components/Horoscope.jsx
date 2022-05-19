@@ -4,7 +4,7 @@ function Horoscope(props) {
     const [prediction, setPrediction] = useState([]);
 
     const getPrediction = async () => {
-        const URL = `https://aztro.sameerkumar.website/?sign=${props.signo[1]}&day=today`;
+        const URL = `https://aztro.sameerkumar.website/?sign=${props.sign[1]}&day=today`;
         fetch(URL, {
             method: 'POST'
         }).then(response => response.json())

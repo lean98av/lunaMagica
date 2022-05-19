@@ -22,24 +22,24 @@ function Tarot(props) {
   return (
     <div className='tarot'>
       <div className='row'>
-        <div className='col-4'>
+        <div className='col-md-4'>
           <h2 className='text-center'>Past</h2>
-          <img src={predictionPast.image} alt='tarot' className='img-fluid' />
-          <h5>{predictionPast.name}</h5>
+          <img src={predictionPast.image} alt='tarot' className='img-fluid p-4' style={{ height: 500 }}/>
+          <h5 className='text-center'>{predictionPast.name}</h5>
           <p>Upright: {predictionPast.upright}</p>
           <p>Reversed: {predictionPast.reversed}</p>
         </div>
-        <div className='col-4'>
+        <div className='col-md-4'>
           <h2 className='text-center'>Present</h2>
-          <img src={predictionPresent.image} alt='tarot' className='img-fluid' />
-          <h5 >{predictionPresent.name}</h5>
+          <img src={predictionPresent.image} alt='tarot' className='img-fluid p-4'  style={{ height: 500 }}/>
+          <h5 className='text-center'>{predictionPresent.name}</h5>
           <p>Upright: {predictionPresent.upright}</p>
           <p>Reversed: {predictionPresent.reversed}</p>
         </div>
-        <div className='col-4'>
+        <div className='col-md-4'>
           <h2 className='text-center'>Future</h2>
-          <img src={predictionFuture.image} alt='tarot' className='img-fluid' />
-          <h5>{predictionFuture.name}</h5>
+          <img src={predictionFuture.image} alt='tarot' className='img-fluid p-4'  style={{ height: 500 }} />
+          <h5 className='text-center'>{predictionFuture.name}</h5>
           <p>Upright: {predictionFuture.upright}</p>
           <p>Reversed: {predictionFuture.reversed}</p>
         </div>

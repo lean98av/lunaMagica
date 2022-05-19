@@ -10,16 +10,11 @@ function Sign(props) {
   }, [props.sign]);
 
   return (
-    <div className="container">
+    <div className="sign">
       <div className="row">
         <div className="col-12">
           <h1 className="text-center">{detailsSign.sign}</h1>
           <h3 className="text-center">{detailsSign.title}</h3>
-          <img
-            src={urlImgs + detailsSign.image}
-            alt={detailsSign.sign}
-            className="img-fluid mx-auto d-block"
-          />
           <p className="text-center">{detailsSign.text}</p>
         </div>
       </div>

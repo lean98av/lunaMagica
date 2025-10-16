@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/lunaMagica/static/css/main.c17bdbb1.css",
+    "main.js": "/lunaMagica/static/js/main.9f19e39f.js",
+    "static/js/787.f0150ffd.chunk.js": "/lunaMagica/static/js/787.f0150ffd.chunk.js",
+    "static/media/logo.jpg": "/lunaMagica/static/media/logo.0a9b9fb450a49c8ef730.jpg",
+    "index.html": "/lunaMagica/index.html",
+    "main.c17bdbb1.css.map": "/lunaMagica/static/css/main.c17bdbb1.css.map",
+    "main.9f19e39f.js.map": "/lunaMagica/static/js/main.9f19e39f.js.map",
+    "787.f0150ffd.chunk.js.map": "/lunaMagica/static/js/787.f0150ffd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c17bdbb1.css",
+    "static/js/main.9f19e39f.js"
+  ]
+}
